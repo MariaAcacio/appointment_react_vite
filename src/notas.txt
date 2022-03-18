@@ -1,0 +1,143 @@
+Para crear un nuevo proyecto de react con vite, ir a la consola e ir a la carpeta
+donde se desea crear el nuevo proyecto.
+Una vez, ahí, escribir: npm init vite@latest <nombre-de-mi-proyecto>
+Seguidamente, la consola va a arrojar una lista donde habrá que especificar que queremos
+React:
+✔ Project name: … vite-project
+? Select a framework: › - Use arrow-keys. Return to submit.
+    vanilla
+    vue
+❯   react
+    preact
+    lit-element
+    svelte
+Pregunta si queremos istalar react con typescript:
+	 ? Select a variant: › - Use arrow-keys. Return to submit.
+❯   react
+    react-ts
+
+
+	 Scaffolding project in /Users/carlosazaustre/dev/vite-project...
+
+Done. Now run:
+
+  cd vite-project
+  npm install
+  npm run dev
+
+  Seguir los comandos que indica la consola.
+
+  Una vez instaladas las dependencias, ejecuta el comando de desarrollo y ya puedes empezar a trabajar.
+
+  npm run dev
+
+  vite v2.4.3 dev server running at:
+
+  > Local: http://localhost:3001/
+  > Network: use `--host` to expose
+
+  ready in 590ms.
+
+
+  atajos para escribir junciones: rfce y rafce
+
+  Incorporando talwindcss para React:
+  Talwindcss es uno de los tantos frameworks de css
+
+  npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+
+  npx tailwindcss init -p
+
+Una vez instalado, ir al archivo tailwind.config.js de react y escribir:
+purge:["./index.html","./src/**/*.{jsx}"]
+Tener en cuenta que /**/* quiere decir que tome todos los archivos de la carpeta src que tengan
+la extensión jsx
+
+QUÉ SON LOS HOOKS?
+React cuenta con una API muy sencilla que te permite crear todo tipo de aplicaciones por medio de 
+algo llamado Hooks
+React has a very simple API that allows you to create all kinds of applications by means of something
+called Hook 
+Los Hooks están disponibles desde la versión 16.8, previo a ello se tenían que crear classes para crear
+y modificar el state, con Hooks no es necesario.
+Los hooks se divien en básicos y adicionales.
+
+Categorías de hooks:
+useState
+useEffect
+useContext
+
+Adicionales:
+useReducer
+useCallback
+useMemo
+useRef
+useImperativeHandle
+useLayoutEffect
+useDebugValue
+
+También puedes crear tus propios hooks:
+de esta forma podrás separar tu código en funciones reutilizables y sacar todo el beneficio de lo que 
+React ofrece.
+
+Qué es el state en React?
+Es básicamente eso; cuál es el estado de nuestra app.
+El estado es una variable con información relevante en nuestra app de React, algunas veces el state
+pertenece a un componente en específico o algunas veces deseas compartirlo a lo largo de diferentes
+componentes.
+El state es creado con la función de useState();
+const [cliente,setcliente] = useState({})
+
+cliente: es la variable que contiene el estado.
+setCliente:es el modificador, es la función que va amodificar esa variable de cliente y únicamente
+esa. únicamente puede editar esa varible.
+useState({}): tiene esas llaves, quiere decir que es el valor inicial, por lo tanto, cliente inicia con un 
+objeto vacío.
+
+React reacciona en base al state: Cada vez que tu state cambia, tu app de React va a renderizar y actualizarse
+con esos cambios.
+
+Reglas de los hooks:
+* Los hooks se deben colocar en la parte superior de tus componentes de React.
+*No se deben de colocar dentro de condicionales, tampoco después de un return.
+*No pueden ir dentro de condicionales.
+
+Eventos en react:
+La forma en que React maneja los eventos es muy similar a como lo hace JavaScript de forma nativa con 
+algunos cambios:
+Los eventos con camelCase, es decir, en lugar de onchange se utiliza onChange, en lugar de onclick se 
+utiliza onClick.
+También a diferencia de JS Y HTML, donde se coloca el nombre de la función en un string en react (JSX)
+se utiliza la función. 
+onChange/ onClick/ son como agregar un addEventListener en js
+
+Qué son los props?
+El state o funciones que crees en tus componentes, sólo van a estar disponibles en ese componente.
+Una forma de evitar duplicar código y reutilizar esas variables, state o estado y funciones en otros 
+componentes es por medio de Props o Propiedades.
+Los props se pasan del padre al hijo, nunca se pueden pasar del hijo al padre.
+Si tienes un state que se va a pasar por diferentes componentes, lo mejor es colocarlo en el archivos
+principal. 
+Cada nivel de componentes deberá tomar y pasar el prop hacia otros componentes, tecnologías como Redux o 
+Context evitan tener que hacerlo de esta forma.
+
+------------------------ useEffect--------------------------------------------------------
+Después del useState, es el más utilizado.
+useEffect siempre es un callback, que se ejecuta cuando un state cambia o cuando el componente esta listo.
+Es el sustituto de lo que antes se conocía como  componentDidMount() y componentDidUpdate()
+
+Usos de useEffect 
+al ejecutarse automaticamente cuando el componente esta listo, es un excelente lugar para colocar código para 
+consultar una API o LocalStorage.
+Debido a que le podemos pasar una dependencia y estar escuchando por los cambios que sucedan en una variable, puede
+actualizar el componente cuando ese cambio suceda.
+sintaxis:
+import {useEffect} from "react"
+
+useEffect(() => {
+	console.log("El componente esta listo");
+}, []);
+
+Deployment:
+Para ello, usaremos la pag de Netlify
+
